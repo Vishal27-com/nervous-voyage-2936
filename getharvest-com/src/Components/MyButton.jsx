@@ -9,6 +9,7 @@ const MyButton = ({children,size,wei}) => {
              bgColor='#FA5D00'
              color='white'
              borderRadius='15px'
+             _hover={{bgColor:'#FA5D00'}}
              p='15px 25px' >
                <Text fontFamily='sans-serif' fontSize={size} fontWeight={wei} >{children}</Text> 
                 </Button>

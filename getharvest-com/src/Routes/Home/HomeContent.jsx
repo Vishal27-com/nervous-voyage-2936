@@ -1,7 +1,8 @@
-import { Box, Button, Center, Container, Flex, Heading, Img, Text } from '@chakra-ui/react';
+import { Box, Button, Center, Container, Flex, Img, SimpleGrid, Text } from '@chakra-ui/react';
 import React from 'react';
+import { Link } from 'react-router-dom';
 import MyButton from '../../Components/MyButton';
-
+import { card1Data,card2Data,company } from './homeData';
 const HomeContent = () => {
     return (
         <Box>
@@ -37,14 +38,10 @@ const HomeContent = () => {
 
                 </Flex>
                 <Flex h='150px' align='center' justify='space-around'>
-                    <Box><Img opacity='0.2' src='https://www.getharvest.com/hubfs/raw_assets/public/harvest-theme/images/customer-logos/featured-vw.svg?noresize' /></Box>
-                    <Box><Img opacity='0.2' src='https://www.getharvest.com/hubfs/raw_assets/public/harvest-theme/images/customer-logos/featured-aclu.svg?noresize' /></Box>
-                    <Box><Img opacity='0.2' src='https://www.getharvest.com/hubfs/raw_assets/public/harvest-theme/images/customer-logos/featured-conde.svg?noresize' /></Box>
-                    <Box><Img opacity='0.2' src='https://www.getharvest.com/hubfs/raw_assets/public/harvest-theme/images/customer-logos/featured-dell.svg?noresize' /></Box>
-                    <Box><Img opacity='0.2' src='https://www.getharvest.com/hubfs/raw_assets/public/harvest-theme/images/customer-logos/featured-amnesty.svg?noresize' /></Box>
-                    <Box><Img opacity='0.2' src='https://www.getharvest.com/hubfs/raw_assets/public/harvest-theme/images/customer-logos/featured-deloitte.svg?noresize' /></Box>
-                    <Box><Img opacity='0.2' src='https://www.getharvest.com/hubfs/raw_assets/public/harvest-theme/images/customer-logos/featured-lululemon.svg?noresize' /></Box>
-                    <Box><Img opacity='0.2' src='https://www.getharvest.com/hubfs/raw_assets/public/harvest-theme/images/customer-logos/featured-yale.svg?noresize' /></Box>
+                    {
+                        company.map(el=> 
+                        <Box><Img opacity='0.2' src={el.logo} /></Box>
+                    )}
                 </Flex>
           </Box>
           </Box>
@@ -54,40 +51,70 @@ const HomeContent = () => {
             <Box w='60%' m='auto'>
                <Text fontSize='35px'>Getting Started</Text>
             </Box>
-            <Box m='15px 0'>
-               <Text fontSize='25px'>Time tracking so easy, your team will actually use it.</Text>
-            </Box>
-          <Box>
-            <Flex h='400px' align='center' justify='space-around'>
-                <Box w='350px'>
-                    <Img w='350px' src='https://res.cloudinary.com/spiralyze/image/upload/f_auto/Harvest/1006_Harvest_Home_How_It_Works-20220601/Create_a_projects1.png' />
-                <Text align='left' fontSize='25px' mt='10px' >Create a project</Text>
-                <Text align='left' fontSize='18px' color='grey'>Create entries for your projects and tasks, or import them via one of our integrations.</Text>
+                <Box m='15px 0'>
+                     <Text fontSize='25px'>Time tracking so easy, your team will actually use it.</Text>
                 </Box>
+                <Box>
+                    <Flex h='400px' align='center' justify='space-around'>
+                        {
+                            card1Data.map(el=>           
                 <Box w='350px'>
-                    <Img w='350px' src='https://res.cloudinary.com/spiralyze/image/upload/f_auto/Harvest/1006_Harvest_Home_How_It_Works-20220601/Track_time.png' />
-                    <Text align='left' fontSize='25px' mt='10px' >Track time</Text>
-                <Text align='left' fontSize='18px' color='grey'>Click start to begin tracking time. Stop and start timers as you switch tasks.</Text>
-                    </Box>
-                <Box w='350px'>
-                    <Img w='350px' src='https://res.cloudinary.com/spiralyze/image/upload/f_auto/Harvest/1006_Harvest_Home_How_It_Works-20220601/Img_step3.png' />
-                    <Text align='left' fontSize='25px' mt='10px' >Generate reports & invoices</Text>
-                <Text align='left' fontSize='18px' color='grey'>Easily convert time entries into internal reporting or client invoices.</Text>
-                    </Box>
+                    <Img w='350px' src={el.img} />
+                    <Text align='left' fontSize='25px' mt='10px' >{el.title}</Text>
+                    <Text align='left' fontSize='18px' color='grey'>{el.desc}</Text>
+                </Box>
+                     )}
             </Flex>
-                    <Button p='25px' borderRadius='15px' bgColor='#FA5D00' fontSize='20px' color='white'>Get Started</Button>
+                    <Button p='25px'  _hover={{bgColor:'#FA5D00'}} borderRadius='15px' bgColor='#FA5D00' fontSize='20px' color='white'>Get Started</Button>
                     <Box bgColor='#FA5D00' h='0.5px' m='50px 0' ></Box>
-
                     <Text align='left' mt='70px' fontSize='19px' fontWeight='bold' color='#FA5D00'>FEATURES</Text>
                     <Text mt='20px' align='left' fontSize='40px' >Everything you need to keep your team ticking</Text>
                     <Text m='20px 0' align='left' fontSize='30px' >Time tracking software that helps you keep time and get insights.</Text>
-                   <Box w='350px'>
-                    <Img src='https://res.cloudinary.com/spiralyze/image/upload/f_auto/Harvest/1029-Harvest-Home-Center-Align/time-tracking.png' />
-                    <Text>Time tracking</Text>
-                    <Text>Simple and intuitive time tracking your team will love</Text>
+                    <SimpleGrid columns={[1,1,1,1,3]} gap='20px'>
+                    {
+                        card2Data.map(el=>    
+                    <Box key={el.title} w={['','','','','350px']} border='1px solid #FA5D00' p='15px' borderRadius='10px'  >
+                     <Flex h='70px' align='center' >
+                    <Img w='70px' src={el.img} />
+                    <Text ml='10px' fontSize='30px' >{el.title}</Text>
+                    </Flex>   
+                    <Text align='left' fontSize='20px'>{el.desc}</Text>
                    </Box>
+                            )
+                    }
+                    </SimpleGrid>
+                    <Button 
+                    fontSize='20px'
+                    bgColor='black'
+                    _hover={{bgColor:'black'}}
+                    color='white'  
+                    borderRadius='15px'
+                    display='block'
+                    align='right'
+                    w={['100%','','18%']}
+                    p='0px 25px' m='40px 0'><Link to='/features'>Learn More</Link></Button>
+                        <Box bgColor='#FA5D00' h='0.5px' m='50px 0' ></Box>
+                    <SimpleGrid columns={[1,2,2]} >
+                        <Box>
+                            <Img src='https://www.getharvest.com/hubfs/raw_assets/public/harvest-theme/images/illustrations/integrations-home.svg' />
+                        </Box>
+                        <Box>
+                    <Text align='left' mt='70px' fontSize='19px' fontWeight='bold' color='#FA5D00'>INTEGRATIONS</Text>
+                    <Text mt='20px' align='left' fontSize='40px' >Integrated with the tools your team already knows and loves</Text>
+                    <Text m='20px 0' align='left' fontSize='30px' >Your favorite apps work seamlessly with Harvest so you can keep projects on track however you work.</Text>   
+                    <Button 
+                    fontSize='20px'
+                    bgColor='black'
+                    color='white'  
+                    borderRadius='15px'
+                    display='block'
+                    align='right'
+                    _hover={{bgColor:'black'}}
+                    w={['100%','','40%']}
+                    p='0px 25px' m='40px 0'><Link to='/integrations'>Browse Integrations</Link></Button>
+                        </Box>
+                    </SimpleGrid>
           </Box>
-
         </Box>
         </Box>
     );
