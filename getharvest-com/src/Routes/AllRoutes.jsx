@@ -8,6 +8,8 @@ import Customers from './Customers';
 import Integration from './Integration';
 import Pricelist from './Pricelist';
 import Signup from './Signup/Signup';
+import Signin from './Login/Signin';
+import Welcome from './Welcome/Welcome';
 
 const AllRoutes = () => {
     return (
@@ -20,6 +22,8 @@ const AllRoutes = () => {
             <Route path='/integrations' element={<Integration />} />
             <Route path='/pricing' element={<Pricelist />} />
             <Route path='/signup' element={<Signup />} />
+            <Route path='/sign_in' element={<Signin />} />
+            <Route path='/welcome' element={<Welcome />} />
             </Routes> 
         </Box>
     );

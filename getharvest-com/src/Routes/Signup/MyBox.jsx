@@ -1,10 +1,10 @@
 import { Box, Checkbox } from '@chakra-ui/react';
 import React from 'react';
 
-const MyBox = () => {
+const MyBox = ({title}) => {
     return (
-        <Box>
-            <Checkbox defaultChecked>Checkbox</Checkbox>
+        <Box align='left' border='1px solid grey' fontSize='20px' p='10px' m='5px' borderRadius='10px'>
+            <Checkbox >{title}</Checkbox>
         </Box>
     );
 };

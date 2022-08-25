@@ -1,10 +1,44 @@
 import React from 'react';
 import {Box, Flex, Text} from '@chakra-ui/react';
-import './Signup.css'
+
 import CompanyUses from '../../Components/CompanyUses';
+import SignupForm1 from './SignupForm1';
+import FormTracker from './FormTracker';
+import SignupForm2 from './SignupForm2';
+import SignupForm3 from './SignupForm3';
+import { useState } from 'react';
+
+const init={
+    first:'block',
+    sec:'none',
+    third:'none'
+}
 const Signup = () => {
+const [display,setDisplay]=useState(init);
+const firstShow=()=>{
+    setDisplay({
+        ...display,
+        first:'block',
+       sec:'none'
+    })
+}
+
+const secShow=()=>{
+    setDisplay({
+        ...display,
+        first:'none',
+        sec:'block'
+    })
+}
+const thirdShow=()=>{
+    setDisplay({
+        ...display,
+        sec:'none',
+        third:'block'
+    })
+}
     return (
-    <Box p='50px  40px 0px 40px'>
+    <Box p='50px  40px 0px 40px' bg='#FAEDD3'>
         <Box color={['white','','#FA5D00']} w='150px' m={['auto','auto','0px']}>
         <svg xmlns="http://www.w3.org/2000/svg" width="137" height="26" fill="none" viewBox="0 0 324 65" aria-label="Harvest">
         <path fill="#fa5d00" d="M0 4.9v59.2h4a4 4 0 0 0 3.9-4V1h-4A4 4 0 0 0 0 4.9ZM63.2 1v59a4 4 0 0 1-4 4h-3.9V5A3.9 3.9 0 0 1 59.2 1h4ZM106 23.8c-6.2 0-10.8 2.7-12.7 7.5V9.6h-8v54.5h8V33a23 23 0 0 1 8.6-1.9c6.2 0 9.4 2.7 9.4 8.1v24.8h8V37.5c0-8.8-5-13.7-13.4-13.7ZM313.5 24.8H324v1.5c0 1.4-.5 2.8-1.4 3.8-1.1 1.2-2.6 1.8-5 1.8h-4v21c0 2.6 1.3 4 4 4h6.4V64h-7.6c-7 0-10.8-3.8-10.8-10.6V32h-6.1v-1.6c0-3.3 2.4-5.5 5.7-5.5h.4V14h8v10.8ZM274.5 36c0 2.6 1.7 4.3 4.7 4.4l7.7.5c7.7.5 12 4.5 12 11.4 0 7.7-6 12.7-15.7 12.7-9.8 0-16.6-5-17.2-12.7h8c.5 3.4 4 5.8 9 5.8 5.2 0 8.3-2.2 8.3-5.5 0-2.7-1.8-4.4-5.3-4.6l-7.6-.5c-7.4-.4-11.6-4.4-11.6-11.2 0-7.6 6.1-12.5 15.4-12.5 9 0 15 4.8 15.6 12.1H290c-.5-3.1-3.6-5.2-7.8-5.2-4.8 0-7.7 2-7.7 5.3Z"></path>
@@ -14,8 +48,8 @@ const Signup = () => {
         <path fill="#fa5d00" d="M27.6 64V40.6h8a4 4 0 0 0 3.8-4V24.7H27.6a4 4 0 0 0-4 4V64h4ZM51.3 1h-3.9v15.8a4 4 0 0 0-4 3.9V64h4a4 4 0 0 0 3.9-4V1ZM15.8 64h-4V5a3.9 3.9 0 0 1 4-3.9h4v43.3a4 4 0 0 1-4 4V64Z"></path>
       </svg> 
          </Box>
-        <Flex h='600px' gap='15px'>
-            <Box  h='600px' w='50%'>
+        <Flex  gap='15px'>
+            <Box  w='50%'>
                 <Flex direction='column' justify='center' h='600px' w='100%' >
                 <Box  h='200px' w='100%'>
                     <Text color='#fa5d00' align='left' fontWeight='bold'>SEE WHY 70,000+ COMPANIES TRACK TIME WITH HARVEST</Text>
@@ -37,8 +71,11 @@ const Signup = () => {
                 </Box>
                 </Flex>
             </Box>
-            <Box border='1px solid black' h='600px' w='50%'>
-                
+            <Box bg='white' h='700px' position='relative'   w='50%' borderRadius='10px' boxShadow='lg'>
+            <FormTracker first={display.first} sec={display.sec} third={display.third}/>
+            <SignupForm1 display={display.first} secShow={secShow} /> 
+            <SignupForm2 display={display.sec} firstShow={firstShow} thirdShow={thirdShow} />
+            <SignupForm3 display={display.third} />
             </Box>
         </Flex> 
         <CompanyUses />
