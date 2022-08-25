@@ -1,4 +1,4 @@
-import { Accordion, AccordionButton,  AccordionItem, AccordionPanel, Box, Button, Flex,  Table, TableCaption, TableContainer, Tbody, Td, Text, Th, Thead, Tr } from '@chakra-ui/react';
+import { Accordion, AccordionButton,  AccordionItem, AccordionPanel, Box, Button, Flex,  Table, TableCaption, TableContainer,  Td, Text,  Thead, Tr } from '@chakra-ui/react';
 import React, { useState } from 'react';
 import Hamburger from 'hamburger-react'
 import { Link } from 'react-router-dom';

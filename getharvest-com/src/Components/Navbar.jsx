@@ -51,7 +51,7 @@ const Navbar = () => {
                 <Box mr='80px'>
                     <HStack spacing='15px'>
                     <Text fontSize='18px'>Sign in</Text>
-                        <MyButton size='20px' wei='400' >Try Harvest free</MyButton>
+                        <MyButton size='20px' wei='400' ><Link to='/signup'>Try Harvest free</Link></MyButton>
                     </HStack>
                 </Box>
                 </Flex>
