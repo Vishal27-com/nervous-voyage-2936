@@ -1,8 +1,9 @@
 import { Box, Button, Center, Container, Flex, Img, SimpleGrid, Text } from '@chakra-ui/react';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import CompanyUses from '../../Components/CompanyUses';
 import MyButton from '../../Components/MyButton';
-import { card1Data,card2Data,company } from './homeData';
+import { card1Data,card2Data } from './homeData';
 const HomeContent = () => {
     return (
         <Box>
@@ -14,13 +15,13 @@ const HomeContent = () => {
             </Container>
             <Box w='60%' m='auto'>
             <Box >
-               <Text fontSize='45px'>Finally, time tracking that your team actually wants to use.</Text>
+               <Text fontSize='45px' fontFamily='WT Monarch Nova'>Finally, time tracking that your team actually wants to use.</Text>
             </Box>
             <Box m='15px 0'>
                <Text fontSize='18px' color='grey'>Intuitive time tracking. Instant report generation. Automatic invoice creation.</Text>
             </Box>
             <Box m='20px 0'>
-            <MyButton size='18px' wei='400'>Try Harvest free</MyButton>
+            <MyButton size='18px' wei='400'><Link to='/signup'>Try Harvest free</Link></MyButton>
             </Box>
             <Box >
             <Text m='10px 0' fontSize='15px' color='grey'>Free 30-day trial. No credit card required.</Text>
@@ -28,22 +29,7 @@ const HomeContent = () => {
             </Box>
           <Box w='90%' m='auto' >
             <Img  src='https://res.cloudinary.com/spiralyze/image/upload/f_auto/Harvest/1029-Harvest-Home-Center-Align/Hero_Image_2x.jpg' />
-          <Box>
-            <Flex align='center' h='20px'>
-                <Text fontSize='20px' color='#FA5D00'>70,000+</Text>
-                <Text fontSize='20px' color='grey'>
-                     companies track time with Harvest
-                </Text>
-                <Box bgColor='#FA5D00' h='0.5px' w='60%'></Box>
-
-                </Flex>
-                <Flex h='150px' align='center' justify='space-around'>
-                    {
-                        company.map(el=> 
-                        <Box><Img opacity='0.2' src={el.logo} /></Box>
-                    )}
-                </Flex>
-          </Box>
+          <CompanyUses />
           </Box>
           <Box bgColor='#FA5D00' h='0.5px'></Box>
 
@@ -65,7 +51,7 @@ const HomeContent = () => {
                 </Box>
                      )}
             </Flex>
-                    <Button p='25px'  _hover={{bgColor:'#FA5D00'}} borderRadius='15px' bgColor='#FA5D00' fontSize='20px' color='white'>Get Started</Button>
+                    <Button p='25px'  _hover={{bgColor:'#FA5D00'}} borderRadius='15px' bgColor='#FA5D00' fontSize='20px' color='white'><Link to='/signup'>Get Started</Link></Button>
                     <Box bgColor='#FA5D00' h='0.5px' m='50px 0' ></Box>
                     <Text align='left' mt='70px' fontSize='19px' fontWeight='bold' color='#FA5D00'>FEATURES</Text>
                     <Text mt='20px' align='left' fontSize='40px' >Everything you need to keep your team ticking</Text>

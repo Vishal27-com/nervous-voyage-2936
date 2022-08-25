@@ -7,6 +7,7 @@ import Features from './Features';
 import Customers from './Customers';
 import Integration from './Integration';
 import Pricelist from './Pricelist';
+import Signup from './Signup/Signup';
 
 const AllRoutes = () => {
     return (
@@ -16,8 +17,9 @@ const AllRoutes = () => {
             <Route path='/why-harvest' element={<WhyHarvest />} />
             <Route path='/features' element={<Features />} />
             <Route path='/customers' element={<Customers />} />
-            <Route path='/intergrations' element={<Integration />} />
+            <Route path='/integrations' element={<Integration />} />
             <Route path='/pricing' element={<Pricelist />} />
+            <Route path='/signup' element={<Signup />} />
             </Routes> 
         </Box>
     );
