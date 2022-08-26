@@ -1,6 +1,5 @@
 import React from 'react';
-import {Box, Flex, Text} from '@chakra-ui/react';
-
+import {Box, Flex, Stack, Text} from '@chakra-ui/react';
 import CompanyUses from '../../Components/CompanyUses';
 import SignupForm1 from './SignupForm1';
 import FormTracker from './FormTracker';
@@ -15,6 +14,7 @@ const init={
 }
 const Signup = () => {
 const [display,setDisplay]=useState(init);
+
 const firstShow=()=>{
     setDisplay({
         ...display,
@@ -37,6 +37,7 @@ const thirdShow=()=>{
         third:'block'
     })
 }
+
     return (
     <Box p='50px  40px 0px 40px' bg='#FAEDD3'>
         <Box color={['white','','#FA5D00']} w='150px' m={['auto','auto','0px']}>
@@ -47,38 +48,35 @@ const thirdShow=()=>{
         <path fill="#fa5d00" fill-rule="evenodd" d="M124.8 37.6c.4-8.3 7-13.8 16.8-13.8 9.5 0 15.6 5.4 15.6 13.7v26.6h-7.8v-6.6c-2 4.8-6.7 7.3-12.6 7.3-8.1 0-13-4.9-13-11.8 0-7.7 6-12.7 15-12.7 5.2 0 9.3 2 10.6 5v-6.9c0-4.6-3.2-7.6-8-7.6s-8.3 2.7-8.8 6.8h-7.8Zm7 14.8c0 3.6 2.7 5.9 7.2 5.9 4.4 0 7.8-2 10.4-5.9v-5.7h-10.6c-4.4 0-7 2.2-7 5.7Z" clip-rule="evenodd"></path>
         <path fill="#fa5d00" d="M27.6 64V40.6h8a4 4 0 0 0 3.8-4V24.7H27.6a4 4 0 0 0-4 4V64h4ZM51.3 1h-3.9v15.8a4 4 0 0 0-4 3.9V64h4a4 4 0 0 0 3.9-4V1ZM15.8 64h-4V5a3.9 3.9 0 0 1 4-3.9h4v43.3a4 4 0 0 1-4 4V64Z"></path>
       </svg> 
-         </Box>
-        <Flex  gap='15px'>
-            <Box  w='50%'>
-                <Flex direction='column' justify='center' h='600px' w='100%' >
-                <Box  h='200px' w='100%'>
-                    <Text color='#fa5d00' align='left' fontWeight='bold'>SEE WHY 70,000+ COMPANIES TRACK TIME WITH HARVEST</Text>
-                    <Text fontSize='48px' lineHeight='50px' size='sm' align='left' fontFamily='WT Monarch Nova'>Finally, time tracking that your team actually wants to use.</Text>
-                </Box>
-                <Box h='150px' w='100%'>
-               <Flex>
-               <Text align='left' fontWeight='bold' w='30%'> Time Tracking.</Text>
-               <Text align='left'> Easy & intuitive time tracking that captures all your time without changing the way you work.</Text>
-               </Flex>
-               <Flex>
-               <Text align='left' fontWeight='bold' w='45%'> Reports & Analysis.</Text>
-               <Text align='left'> Easy & intuitive time tracking that captures all your time without changing the way you work.</Text>
-               </Flex>
-               <Flex>
-               <Text align='left' fontWeight='bold' w='40%'> Time Tracking.</Text>
-               <Text align='left'> Easy & intuitive time tracking that captures all your time without changing the way you work.</Text>
-               </Flex>
-                </Box>
-                </Flex>
-            </Box>
-            <Box bg='white' h='700px' position='relative'   w='50%' borderRadius='10px' boxShadow='lg'>
-            <FormTracker first={display.first} sec={display.sec} third={display.third}/>
-            <SignupForm1 display={display.first} secShow={secShow} /> 
-            <SignupForm2 display={display.sec} firstShow={firstShow} thirdShow={thirdShow} />
-            <SignupForm3 display={display.third} />
-            </Box>
-        </Flex> 
-        <CompanyUses />
+    </Box>
+    <Flex  gap='15px'>
+    <Box  w='50%'>
+    <Flex direction='column' justify='center' h='600px' w='100%' >
+    <Box  h='200px' w='100%'>
+        <Text color='#fa5d00' align='left' fontWeight='bold'>SEE WHY 70,000+ COMPANIES TRACK TIME WITH HARVEST</Text>
+        <Text fontSize='48px' lineHeight='50px' size='sm' align='left' fontFamily='WT Monarch Nova'>Finally, time tracking that your team actually wants to use.</Text>
+    </Box>
+    <Box h='150px' w='100%'>
+        <Stack direction='row' spacing={0}>
+        <Text align='left'><span style={{fontWeight:'bold'}} >Time Tracking</span> Easy & intuitive time tracking that captures all your time without changing the way you work.</Text>
+        </Stack>
+        <Stack>
+        <Text align='left'><span style={{fontWeight:'bold'}} > Reports & Analysis.</span>Easy & intuitive time tracking that captures all your time without changing the way you work.</Text>
+        </Stack>
+        <Stack>
+        <Text align='left'><span style={{fontWeight:'bold'}} > Time Tracking.</span> Easy & intuitive time tracking that captures all your time without changing the way you work.</Text>
+        </Stack>
+    </Box>
+    </Flex>
+    </Box>
+    <Box bg='white' h='700px' position='relative'   w='50%' borderRadius='10px' boxShadow='lg'>
+    <FormTracker first={display.first} sec={display.sec} third={display.third}/>
+    <SignupForm1 display={display.first} secShow={secShow}/> 
+    <SignupForm2 display={display.sec} firstShow={firstShow} thirdShow={thirdShow}/>
+    <SignupForm3 display={display.third}  />
+    </Box>
+    </Flex> 
+    <CompanyUses />
     </Box>
     );
 };
