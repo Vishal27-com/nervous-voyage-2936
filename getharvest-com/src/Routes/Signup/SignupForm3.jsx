@@ -1,8 +1,10 @@
 import { Box, Button, Flex, Input, SimpleGrid, Text } from '@chakra-ui/react';
 import React from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
-
+import { UserInfoContext } from '../../Context/UserInfoContext';
 const SignupForm3 = ({display}) => {
+    const {userInfo,userHandler}=useContext(UserInfoContext);
     return (
         <Box display={display}>
              <Box p='20px' >
@@ -13,21 +15,33 @@ const SignupForm3 = ({display}) => {
              placeholder='First name'
              type='text'
              h='50px'
+             name='f_name'
+             value={userInfo.user.f_name}
+             onChange={userHandler}
              />
              <Input 
              placeholder='Last name'
              type='text'
              h='50px'
+             name='l_name'
+             value={userInfo.user.l_name}
+             onChange={userHandler}
              />
              <Input 
              placeholder='Company name'
              type='text'
              h='50px'
+             name='comp_name'
+             value={userInfo.user.comp_name}
+             onChange={userHandler}
              />
              <Input 
              placeholder='Work email'
              type='email'
              h='50px'
+             name='email'
+             value={userInfo.user.email}
+             onChange={userHandler}
              />
             </SimpleGrid>
              <Input 
@@ -35,6 +49,9 @@ const SignupForm3 = ({display}) => {
              type='password'
              m='20px 0'
              h='50px'
+             name='password'
+             value={userInfo.user.password}
+             onChange={userHandler}
              />
              <Button
              bg='green'
@@ -44,7 +61,7 @@ const SignupForm3 = ({display}) => {
              color='white'
              borderRadius='20px'
              _hover={{bg:'green'}}
-             >Create my account</Button>
+             ><Link to='/welcome'>Create my account</Link></Button>
              <Flex justify='center' gap='10px'>
              <Text color='grey' m='10px 0' fontSize='18px'>Already a customer?</Text>
              <Text fontSize='18px' m='10px 0'><Link to='/sign_in'>Sign in</Link></Text>

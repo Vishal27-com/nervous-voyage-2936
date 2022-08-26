@@ -1,5 +1,7 @@
 import { Box, Button, Text } from '@chakra-ui/react';
 import React from 'react';
+import { useContext } from 'react';
+import { UserInfoContext } from '../../Context/UserInfoContext';
 import MyBox from './MyBox';
 const checkbox=[
     'Time Tracking',
@@ -10,14 +12,17 @@ const checkbox=[
     'Other',
 ]
 const SignupForm1 = ({display,secShow}) => {
+const {userInfo,userHandler}=useContext(UserInfoContext);
+
+
     return (
         <Box  display={display} >
             <Box p='20px'  h='520px' >
-                <Text fontSize='30px' >Start Your Free 30-Day Trial</Text>
+                <Text fontSize='30px' >Start Your Free 30-Days Trial</Text>
                 <Text fontSize='20px' mb='30px'>What will you be using Harvest for?</Text>
               {
                 checkbox.map(el=>
-                    <MyBox title={el} key={el} />)
+                    <MyBox title={el} key={el} featureCheckbox={userHandler} />)
               }  
                 <Button
                 color='White'
