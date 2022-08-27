@@ -18,6 +18,33 @@
         "billable_rate": "0526"
       },
       "id": 1
+    },
+    {
+      "features": [
+        "Time Tracking",
+        "Time Analysis",
+        "BaseCamp",
+        "Slack",
+        "I want to make sure my business is on track",
+        "Expense tracking",
+        "35 hrs/week",
+        "Friday at 5pm",
+        "Weekdays at 9am (Mon–Fri)",
+        "We bill by fixed fees"
+      ],
+      "user": {
+        "f_name": "Karan ",
+        "l_name": "Gupta",
+        "email": "example@gmail",
+        "password": "1233",
+        "comp_name": "GPM SVM I C",
+        "size": "2",
+        "client_Name": "Hell",
+        "project_Name": "1452",
+        "budget": "01233",
+        "billable_rate": "01245"
+      },
+      "id": 2
     }
   ]
 }

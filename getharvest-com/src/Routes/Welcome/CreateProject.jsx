@@ -7,11 +7,10 @@ const CreateProject = () => {
 const {userInfo,userHandler}=useContext(UserInfoContext);    
 const submitHandler=()=>{
    postUserDetails(userInfo).then(res=>{
-    
+
    })
 }    
 const body=(
-        
         <Box>
             <label>
                 Client name
